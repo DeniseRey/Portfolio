@@ -75,7 +75,154 @@
 <label for="ej5_palabra">Ingresar palabra</label>
 <input type="text" id="ej5_palabra">
 
-<br>
+<button onclick="cantidadletras()">Enter</button>
+<label for="ej5_cantidad">Cantidad de letras</label>
+<input type="number" id="ej5_cantidad"> 
+
+<script>
+       function cantidadletras() {
+           document.getElementById("ej5_cantidad").value = document.getElementById("ej5_palabra").value.length; //la propiedad length me da la cantidad de letras
+        
+       }
+
+</script>
+ 
+
+<h5>Ejercicio 6</h5>
+
+<label for="ej6_numero">Ingresar número</label>
+<input type="number" id="ej6_numero">
+
+<button onclick="paroimpar()">Enter</button>
+<label for="ej6_resultado">Resultado</label>
+<input type="text" id="ej6_resultado"> 
+            
+<script>
+      function paroimpar() {
+          if (document.getElementById("ej6_numero").value % 2 === 0){
+              document.getElementById("ej6_resultado").value = "Par"
+          } else {
+            document.getElementById("ej6_resultado").value = "Impar" 
+          }
+          //un solo igual es para asignar un valor a la variable. 2 o 3 iguales es para un condicional
+          
+      }
+
+</script>   
+
+
+<h5>Ejercicio 7</h5>
+<label for="ej7_numero1">Ingresar número</label>
+<input type="number" id="ej7_numero1">
+<label for="ej7_numero2">Ingresar número</label>
+<input type="number" id="ej7_numero2">
+<button onclick="multiplos3()">Enter</button>
+<label for="ej7_resultado">Multiplos de 3</label>
+<input type="text" id="ej7_multiplos"> 
+
+<script>
+      function multiplos3() {
+          let inpResultado = document.getElementById("ej7_multiplos")
+          inpResultado.value = "";
+          let number1 = Number(document.getElementById("ej7_numero1").value); //Number hace que el valor ingresado en el getnumber sea interpretado como un número y no un texto
+          let number2 = Number(document.getElementById("ej7_numero2").value);
+          let initialNumber = 0;
+          let finalNumber = 0;
+          if (number1 > number2) {
+              initialNumber = number2;
+              finalNumber = number1;
+          }
+          else {
+              initialNumber = number1;
+              finalNumber = number2;
+          }
+         
+          for(let i = initialNumber + 1; i < finalNumber; i++) {
+             
+             if (i%3 === 0) {
+                 
+                inpResultado.value = inpResultado.value + "," + i
+
+             }
+            }
+        
+      }
+
+</script>
+
+<h5>Ejercicio 8</h5>
+<label for="ej8_numero">Ingresar número</label>
+<input type="number" id="ej8_numero">
+<button onclick="primos()">Enter</button>
+<label for="ej8_resultado">Primos</label>
+<input type="text" id="ej8_primos"> 
+
+<script>
+    function primos() {
+        let inpResultado = document.getElementById("ej8_primos")
+          inpResultado.value = "";
+        let number = Number(document.getElementById("ej8_numero").value);
+        for(let i = 1; i <= number; i++) {
+            let N = i 
+            for(let index = 2; index <= i/2; index++) {
+                if(i % index === 0) {
+                    N = "" 
+                    break  //corta
+                
+                } 
+            }
+            if(N != "") {
+
+                inpResultado.value = inpResultado.value + "," + N
+            } //pregunto si N es distinto a vacio ""
+
+        }
+    }
+</script>
+
+<h5>Ejercicio 9</h5>
+<label for ="ej09_nombre"> Ingresar Nombre</label>
+<input type="text" id="ej09_nombre">
+<label for ="ej09_apellido"> Ingresar Apellido</label>
+<input type="text" id="ej09_apellido">
+<label for ="ej09_edad"> Ingresar Edad</label>
+<input type="text" id="ej09_edad">
+<label for ="ej09_ciudad"> Ingresar Ciudad</label>
+<input type="text" id="ej09_ciudad">
+<button onclick = "Parrafo()">Generar Párrafo</button>
+<label for ="ej09_resultado"> Párrafo </label>
+<input type ="text" id = "ej09_parrafo">
+<script>
+    function Parrafo(){
+        let nombre = String(document.getElementById("ej09_nombre").value)
+        let apellido = String(document.getElementById("ej09_apellido").value)
+        let edad = String(document.getElementById("ej09_edad").value)
+        let ciudad = String(document.getElementById("ej09_ciudad").value)
+        let Resultado = document.getElementById("ej09_parrafo")
+        Resultado.value = `Mi nombre es ${nombre} ${apellido},tengo ${edad} años. Nací en la ciudad de ${ciudad}`   
+    }
+</script>
+
+
+<h5>Ejercicio 10</h5>
+<label for="ej10_numero1"> Ingresar primer número</label>
+<input type="number" id="ej10_numero1">
+<label for="ej10_numero2"> Ingresar segundo número</label>
+<input type="number" id="ej10_numero2">
+<button onclick = "Num_entre()">Generar valores</button>
+<label for="ej10_resultado"> Valores comprendidos entre 1° y 2° numero </label>
+<input type="text" id="ej10_valores">
+<script>
+    function Num_entre() {
+        let Resultado = document.getElementById("ej10_valores");
+        let num1 = Number(document.getElementById("ej10_numero1").value);
+        let num2 = Number(document.getElementById("ej10_numero2").value);
+        let min = Math.min (num1,num2);
+        let max = Math.max (num1,num2);
+        let Arreglo = Array.from({length: max - min-1}, (v, i) => i + min+1);
+        Resultado.value = Arreglo.toString();
+    }
+</script>
 
 
 </body>
