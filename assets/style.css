@@ -30,6 +30,10 @@ body .imagen1 {
     height: 500px;
     margin-left: 150px;
 }
+body .imagen2 {
+    height: 300px;
+    margin-left: 650px;
+}
 
 body .sai {
     
